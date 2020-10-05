@@ -2,6 +2,7 @@
 
 
 #include "Kismet/KismetMathLibrary.h"
+#include "Kismet/KismetSystemLibrary.h"
 #include "QueryPerceptionComponent.h"
 
 // Sets default values for this component's properties
@@ -39,11 +40,11 @@ bool UQueryPerceptionComponent::CanSeeActor(AActor* target) {
 	forward.Normalize();
 	float angle = UKismetMathLibrary::Dot_VectorVector(toTarget, forward);
 	//float angle = UKismetMathLibrary::RadiansToDegrees(acos( UKismetMathLibrary::Dot_VectorVector(toTarget , forward)));
-	float cosine = -cos(centralViewAngleHorizontal*2);
-	//float sine = sin(centralViewAngleHorizontal);
+	float ViewAngle = cos(centralViewAngleHorizontal);
 	//UE_LOG(LogTemp, Warning, TEXT("Dot Product: %f, ViewAngle C: %f"), angle, cosine);
-	if (angle > -cos(centralViewAngleHorizontal)) {
-		UE_LOG(LogTemp, Warning, TEXT("Player is seen"));
+	if (angle > ViewAngle) {
+		FDateTime time = FDateTime::Now();
+		UE_LOG(LogTemp, Warning, TEXT("%i:%i Player is seen"), time.GetMinute(), time.GetSecond());
 	}
 	return false;
 }
