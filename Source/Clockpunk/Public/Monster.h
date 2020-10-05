@@ -11,12 +11,13 @@ class CLOCKPUNK_API AMonster : public ACharacter
 {
 	GENERATED_BODY()
 
-	/*UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
-		class USkeletalMeshComponent* Mesh; */
 
 public:
 	// Sets default values for this character's properties
 	AMonster();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Perception)
+		class UQueryPerceptionComponent* PerceptionComponent;
 
 protected:
 	// Called when the game starts or when spawned

@@ -1,5 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "QueryPerceptionComponent.h"
 #include "Monster.h"
 
 // Sets default values
@@ -7,13 +8,7 @@ AMonster::AMonster()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-/*
-	Mesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("CharacterMesh1P"));
-	Mesh->SetOnlyOwnerSee(true);
-	Mesh->SetupAttachment(RootComponent);
-	Mesh->bCastDynamicShadow = true;
-	Mesh->CastShadow = true;
-*/
+	PerceptionComponent = CreateDefaultSubobject<UQueryPerceptionComponent>(TEXT("PerceptionComponent"));
 }
 
 // Called when the game starts or when spawned
