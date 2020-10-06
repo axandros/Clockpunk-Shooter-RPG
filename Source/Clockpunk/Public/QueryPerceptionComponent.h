@@ -53,5 +53,5 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	UFUNCTION(BlueprintCallable)
-	bool CanSeeActor(AActor* target);
+	bool CanSeeActor(AActor* ActorToSee);
 };

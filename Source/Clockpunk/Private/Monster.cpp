@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "QueryPerceptionComponent.h"
+#include "CombatComponent.h"
 #include "Monster.h"
 
 // Sets default values
@@ -9,6 +10,7 @@ AMonster::AMonster()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	PerceptionComponent = CreateDefaultSubobject<UQueryPerceptionComponent>(TEXT("PerceptionComponent"));
+	CombatComponent = CreateDefaultSubobject<UCombatComponent>(TEXT("CombatComponent"));
 }
 
 // Called when the game starts or when spawned
@@ -31,10 +33,3 @@ void AMonster::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 }
-
-
-bool AMonster::CanSeeTarget(AActor* target)
-{
-	return false;
-}
-

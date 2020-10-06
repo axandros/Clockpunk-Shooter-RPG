@@ -2,7 +2,6 @@
 
 
 #include "Kismet/KismetMathLibrary.h"
-#include "Kismet/KismetSystemLibrary.h"
 #include "QueryPerceptionComponent.h"
 
 // Sets default values for this component's properties
@@ -33,8 +32,10 @@ void UQueryPerceptionComponent::TickComponent(float DeltaTime, ELevelTick TickTy
 	// ...
 }
 
-bool UQueryPerceptionComponent::CanSeeActor(AActor* target) {
-	FVector toTarget = target->GetActorLocation() - GetOwner()->GetActorLocation();
+bool UQueryPerceptionComponent::CanSeeActor(AActor* ActorToSee) {
+	bool ret = false;
+	FVector toTarget = ActorToSee->GetActorLocation() - GetOwner()->GetActorLocation();
+	float distance = toTarget.Size();
 	toTarget.Normalize();
 	FVector forward = GetOwner()->GetActorForwardVector();
 	forward.Normalize();
@@ -44,7 +45,11 @@ bool UQueryPerceptionComponent::CanSeeActor(AActor* target) {
 	//UE_LOG(LogTemp, Warning, TEXT("Dot Product: %f, ViewAngle C: %f"), angle, cosine);
 	if (angle > ViewAngle) {
 		FDateTime time = FDateTime::Now();
-		UE_LOG(LogTemp, Warning, TEXT("%i:%i Player is seen"), time.GetMinute(), time.GetSecond());
+		//UE_LOG(LogTemp, Warning, TEXT("%i:%i Player is seen"), time.GetMinute(), time.GetSecond());
+		if (distance < centralViewDistance) {
+			UE_LOG(LogTemp, Warning, TEXT("%i:%i Player is seen.  Distance: %f"), time.GetMinute(), time.GetSecond(), distance);
+			ret = true;
+		}
 	}
-	return false;
+	return ret;
 }

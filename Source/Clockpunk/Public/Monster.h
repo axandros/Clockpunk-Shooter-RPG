@@ -19,6 +19,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Perception)
 		class UQueryPerceptionComponent* PerceptionComponent;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat)
+		class UCombatComponent* CombatComponent;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -30,7 +33,5 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	UFUNCTION(BlueprintCallable)
-		bool CanSeeTarget(AActor* target);
 
 };
