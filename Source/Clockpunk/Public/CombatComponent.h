@@ -6,6 +6,8 @@
 #include "Components/ActorComponent.h"
 #include "CombatComponent.generated.h"
 
+UDELEGATE()
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnZeroHealth);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class CLOCKPUNK_API UCombatComponent : public UActorComponent
@@ -32,5 +34,12 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-		
+	UFUNCTION(BlueprintCallable)
+		void TakeDamage(int damageValue);
+
+	UFUNCTION(BlueprintCallable)
+		void RestoreDamage(int damageToHeal);
+
+	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
+		FOnZeroHealth OnZeroHealth;
 };
