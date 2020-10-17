@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright 2020 Tristan "Axandros" Brumagin.
 
 #pragma once
 
@@ -20,7 +20,7 @@ public:
 		class UQueryPerceptionComponent* PerceptionComponent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat)
-		class UCombatComponent* CombatComponent;
+		class UHealthComponent* HealthComponent;
 
 protected:
 	// Called when the game starts or when spawned

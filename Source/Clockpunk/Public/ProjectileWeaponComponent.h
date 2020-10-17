@@ -4,37 +4,31 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "MeleeCombatComponent.generated.h"
+#include "ProjectileWeaponComponent.generated.h"
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class CLOCKPUNK_API UMeleeCombatComponent : public UActorComponent
+class CLOCKPUNK_API UProjectileWeaponComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
 public:	
 	// Sets default values for this component's properties
-	UMeleeCombatComponent();
+	UProjectileWeaponComponent();
 
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-	// The distance the melee attack can reach.
-	UPROPERTY(BlueprintReadWrite)
-		float Range = 150.0f;
+	/** Projectile class to spawn */
+	UPROPERTY(EditDefaultsOnly, Category = Projectile)
+		TSubclassOf<class AClockpunkProjectile> ProjectileClass;
 
-	// Time between animation start and damage dealt.
-	UPROPERTY(BlueprintReadWrite)
-		float AnimationDelay = 0.0f;
-
-	// The angle away from the forward vector the attack can hit.
-	UPROPERTY(BlueprintReadWrite)
-		float AttackAngle = 30.0f;
+	//UPROPERTY(BlueprintReadWrite)
 
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	
+		
 };

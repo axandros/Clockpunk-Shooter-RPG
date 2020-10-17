@@ -1,8 +1,8 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright 2020 Tristan "Axandros" Brumagin.
 
 #include "Monster.h"
 #include "QueryPerceptionComponent.h"
-#include "CombatComponent.h"
+#include "HealthComponent.h"
 
 // Sets default values
 AMonster::AMonster()
@@ -10,8 +10,8 @@ AMonster::AMonster()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	PerceptionComponent = CreateDefaultSubobject<UQueryPerceptionComponent>(TEXT("PerceptionComponent"));
-	CombatComponent = CreateDefaultSubobject<UCombatComponent>(TEXT("CombatComponent"));
-	CombatComponent->OnZeroHealth.AddDynamic(this, &AMonster::Death);
+	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("CombatComponent"));
+	HealthComponent->OnZeroHealth.AddDynamic(this, &AMonster::Death);
 }
 
 // Called when the game starts or when spawned

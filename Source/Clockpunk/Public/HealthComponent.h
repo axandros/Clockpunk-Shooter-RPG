@@ -1,23 +1,23 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright 2020 Tristan "Axandros" Brumagin.
 
 #pragma once
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "CombatComponent.generated.h"
+#include "HealthComponent.generated.h"
 
 UDELEGATE()
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnZeroHealth);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class CLOCKPUNK_API UCombatComponent : public UActorComponent
+class CLOCKPUNK_API UHealthComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
 
 public:	
 	// Sets default values for this component's properties
-	UCombatComponent();
+	UHealthComponent();
 
 protected:
 	// Called when the game starts

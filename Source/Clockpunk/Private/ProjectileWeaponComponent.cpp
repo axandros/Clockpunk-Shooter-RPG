@@ -1,10 +1,10 @@
 // Copyright 2020 Tristan "Axandros" Brumagin.
 
 
-#include "MeleeCombatComponent.h"
+#include "ProjectileWeaponComponent.h"
 
 // Sets default values for this component's properties
-UMeleeCombatComponent::UMeleeCombatComponent()
+UProjectileWeaponComponent::UProjectileWeaponComponent()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
@@ -15,7 +15,7 @@ UMeleeCombatComponent::UMeleeCombatComponent()
 
 
 // Called when the game starts
-void UMeleeCombatComponent::BeginPlay()
+void UProjectileWeaponComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
@@ -25,7 +25,7 @@ void UMeleeCombatComponent::BeginPlay()
 
 
 // Called every frame
-void UMeleeCombatComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+void UProjectileWeaponComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 

@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright 2020 Tristan "Axandros" Brumagin.
 
 #include "QueryPerceptionComponent.h"
 #include "Kismet/KismetMathLibrary.h"
